@@ -56,12 +56,7 @@ public class AuthService {
     }
 
     private AuthResponse buildResponse(User u) {
-        String token = jwt.generateToken(
-                org.springframework.security.core.userdetails.User
-                        .withUsername(u.getEmail())
-                        .password(u.getPassword())
-                        .authorities(List.of())
-                        .build());
+        String token = jwt.generateToken(new CustomUserDetails(u));
         return new AuthResponse(token, u.getId(), u.getDisplayName());
     }
 }

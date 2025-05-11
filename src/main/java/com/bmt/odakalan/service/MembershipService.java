@@ -29,6 +29,8 @@ public class MembershipService {
 
         if (!room.getMembers().add(user))
             throw new BadRequestException("Zaten üyesiniz");
+        
+        roomRepo.save(room);
     }
 
     public void leave(Long roomId) {
@@ -38,6 +40,8 @@ public class MembershipService {
 
         if (!room.getMembers().remove(user))
             throw new BadRequestException("Üye değilsiniz");
+
+        
     }
 
     public List<UserDTO> listMembers(Long roomId) {

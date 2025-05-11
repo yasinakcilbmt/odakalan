@@ -5,6 +5,7 @@ import com.bmt.odakalan.service.MembershipService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,9 +15,11 @@ public class RoomMembershipController {
 
     private final MembershipService ms;
 
-    @PostMapping("/{id}/join")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void join(@PathVariable Long id) { ms.join(id); }
+    @PostMapping("/{roomId}/join")
+    public ResponseEntity<Void> join(@PathVariable Long roomId) {
+        ms.join(roomId);
+        return ResponseEntity.ok().build();
+    }
 
     @PostMapping("/{id}/leave")
     @ResponseStatus(HttpStatus.NO_CONTENT)

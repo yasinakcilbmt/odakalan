@@ -24,4 +24,7 @@ public class AuthController {
     public AuthResponse login(@Valid @RequestBody LoginRequest req) {
         return service.login(req);
     }
+
+
+    
 }

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-OdakalanApplication<odakalan>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.bmt.odakalan.OdakalanApplication",
+            "projectName": "odakalan",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

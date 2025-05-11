@@ -19,10 +19,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User u = repo.findByEmailAndDeletedAtIsNull(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        return org.springframework.security.core.userdetails.User
-                .withUsername(u.getEmail())
-                .password(u.getPassword())
-                .authorities(List.of()) // roller yok
-                .build();
+        return new CustomUserDetails(u);
     }
 }

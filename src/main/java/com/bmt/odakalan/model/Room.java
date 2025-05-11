@@ -95,4 +95,13 @@ public class Room {
      public void setMembers(Set<User> members) {
          this.members = members;
      }
- }
+
+     public void addMember(User user) {
+        members.add(user);
+     }
+
+     public void removeMember(User user) {
+        members.remove(user);
+     }
+}
+
